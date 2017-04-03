@@ -1,0 +1,4 @@
+inventory
+*.retry
+swrepo/*.zip
+ansible-oracle
