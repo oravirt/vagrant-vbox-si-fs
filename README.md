@@ -6,7 +6,7 @@ Clone the repository by:
 
 `cd vagrant-vbox-si`
 
-Edit the hosts.yml file if you want to change the ip, number of cpu's etc.
+Edit the `hosts.yml` file if you want to change the ip, number of cpu's etc.
 
 If you want to use a different version or Oracle Linux, change the parameter `box: oravirt/ol73`: to one of the following:
 
