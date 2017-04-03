@@ -10,9 +10,9 @@ Edit the hosts.yml file if you want to change the ip, number of cpu's etc.
 
 If you want to use a different version or Oracle Linux, change the parameter `box: oravirt/ol73`: to one of the following:
 
-`oravirt/ol72` 
-`oravirt/ol68` 
-`oravirt/ol67` 
+- `oravirt/ol72` 
+- `oravirt/ol68` 
+- `oravirt/ol67` 
 
 Download the Oracle binaries and place them in the `swrepo` directory.
 
@@ -26,12 +26,13 @@ This will:
 
 If you want to installa a different version of Oracle, edit the `ansible-oracle/group_vars/vbox-si-fs` file and change the following:
 
-- Under `oracle_databases`, change the `oracle_version_db:` to one of the following:
-`12.2.0.1`
-`12.1.0.2`
-`12.1.0.1`
-`11.2.0.4`
-`11.2.0.3`
+Under `oracle_databases`, change the `oracle_version_db:` to one of the following:
+
+* `12.2.0.1`
+* `12.1.0.2`
+* `12.1.0.1`
+* `11.2.0.4`
+* `11.2.0.3`
 
 ### These are the binaries that should be used.
 
