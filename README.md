@@ -26,7 +26,7 @@ This will:
 
 If you want to installa a different version of Oracle, edit the `ansible-oracle/group_vars/vbox-si-fs` file and change the following:
 
-Under `oracle_databases`, change the `oracle_version_db:` to one of the following:
+Under `oracle_databases`, change the parameter `oracle_version_db:` to one of the following:
 
 * `12.2.0.1`
 * `12.1.0.2`
