@@ -20,7 +20,7 @@ f.close
 
 # Create VM's
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-#config.ssh.insert_key = false
+config.ssh.insert_key = false
  
   if File.directory?("swrepo")
     # our shared folder for installation files
