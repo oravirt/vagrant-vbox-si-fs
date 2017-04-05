@@ -69,7 +69,7 @@ config.ssh.insert_key = false
     ansible.playbook = "ansible-oracle/vbox-si-fs-install.yml"
     ansible.limit = "all"
     ansible.groups = {
-        "vbox-si-fs" => ["db1"],
+        "vbox-si-fs" => ["db1-fs"],
         }
   end
 

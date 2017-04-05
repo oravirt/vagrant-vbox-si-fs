@@ -36,6 +36,14 @@ If you just want to create the machine, and not run the provisioning step run th
 
 `vagrant up --no-provision`
 
+### Modifying the filesystems on the host
+
+The VM configures 2 filesystems (u01/ & /u02). /u01 uses ext4 as the filesystem & /u02 uses xfs by default. If you'd want to change either of these, do the follwing:
+
+* edit the `ansible-oracle/group_vars/vbox-si-fs`
+* Under `host_fs_layout` change the `fstype` parameter to ext4/xfs/btrfs.
+
+
 ### Modifying the Oracle installation
 
 If you want to install a different version of Oracle, edit the `ansible-oracle/group_vars/vbox-si-fs` file and change the following:
