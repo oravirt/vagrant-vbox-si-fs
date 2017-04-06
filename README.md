@@ -6,6 +6,12 @@ The provisioning step of this vagrant solution is: [https://github.com/oravirt/a
 
 ### Getting started
 
+Pre-requisites:
+
+- [Vagrant](https://www.vagrantup.com/)
+- [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
+
+
 Clone this repository:
 `git clone --recursive https://github.com/oravirt/vagrant-vbox-si-fs.git`
 
