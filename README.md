@@ -73,7 +73,7 @@ After you've done the changes, run `vagrant provision` again, and it will instal
 
 To log on to the VM (ssh), you have the following options:
 * run `vagrant ssh` from within the directory, then sudo to oracle/root
-* ssh to VM using the ssh binary of your choice, i.e: `ssh 192.168.9.62 -l oracle` (oracle/oracle, root/root). The oracle user also have sudo rights
+* ssh to VM using the ssh binary of your choice, i.e: `ssh 192.168.9.61 -l oracle` (oracle/oracle, root/root). The oracle user also have sudo rights
 
 For each database created there is a `/home/oracle/.profile_<dbname>` created which have all the environment variables set up for this particular database.
 

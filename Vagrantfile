@@ -60,6 +60,7 @@ config.ssh.insert_key = false
         end
       end
     end
+  # The following is added because sometimes, the 'private network' interface doesn't come up
   config.vm.provision :shell, :inline => "service network restart"
   end
 # This is the provisioning step performed by Ansible. Uncomment if it should be run as part of vagrant up
