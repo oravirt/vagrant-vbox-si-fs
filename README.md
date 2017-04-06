@@ -9,7 +9,7 @@ The provisioning step of this vagrant solution is: [https://github.com/oravirt/a
 Clone this repository:
 `git clone --recursive https://github.com/oravirt/vagrant-vbox-si-fs.git`
 
-`cd vagrant-vbox-si`
+`cd vagrant-vbox-si-fs`
 
 Edit the `hosts.yml` file if you want to change the ip, number of cpu's, amount of RAM etc.
 
