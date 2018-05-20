@@ -19,9 +19,12 @@ Clone this repository:
 
 Edit the `hosts.yml` file if you want to change the ip, number of cpu's, amount of RAM etc.
 
-If you want to use a different version or Oracle Linux, change the parameter `box: oravirt/ol73` to one of the following:
+If you want to use a different version or Oracle Linux, change the parameter `box: oravirt/ol75` to one of the following:
 
+- `oravirt/ol74`
+- `oravirt/ol73`
 - `oravirt/ol72`
+- `oravirt/ol69`
 - `oravirt/ol68`
 - `oravirt/ol67`
 - `oravirt/ol65`
@@ -33,10 +36,13 @@ Download the Oracle binaries (see below) and place them in the `swrepo` director
 And then: `vagrant up`
 
 This will (by default):
-- create a VM based on Oracle Linux 7.3
-- create a 12.2 container database called 'orclcdb'
-- create a pdb called 'orclpdb'
-- sys/system passwords are Oracle123
+- create a VM based on Oracle Linux 7.5
+- create a 12.2 container database called `orclcdb`
+- create a pdb called `orclpdb1`
+- sys/system passwords are `Oracle_123`
+- A tablespace called `appuser1_data` is created in the pdb
+- A user called `appuser1` is created in the pdb
+- A service called `app1_service` is created in the pdb
 
 If you just want to create the machine, and not run the provisioning step run this:
 
@@ -46,13 +52,13 @@ If you just want to create the machine, and not run the provisioning step run th
 
 The VM configures 2 filesystems (u01/ & /u02). /u01 uses ext4 as the filesystem & /u02 uses xfs by default. If you'd want to change either of these, do the follwing:
 
-* edit the `ansible-oracle/group_vars/vbox-si-fs`
+* edit the `ansible-oracle/group_vars/vbox-si-fs/vbox-si-fs.yml` file
 * Under `host_fs_layout` change the `fstype` parameter to ext4/xfs/btrfs.
 
 
 ### Modifying the Oracle installation
 
-If you want to install a different version of Oracle, edit the `ansible-oracle/group_vars/vbox-si-fs` file and change the following:
+If you want to install a different version of Oracle, edit the `ansible-oracle/group_vars/vbox-si-fs/databases.yml` file and change the following:
 
 Under `oracle_databases`, change the parameter `oracle_version_db:` to one of the following:
 
@@ -68,7 +74,7 @@ If you want to change other parameters they're all under `oracle_databases`.
 
 ### Adding more ORACLE_HOMES, or databases to an existing home
 
-If you want to install more than 1 ORACLE_HOME (using different version etc), just uncomment the part that is commented in `ansible-oracle/group_vars/vbox-si-fs`.
+If you want to install more than 1 ORACLE_HOME (using different version etc), just uncomment the part that is commented in `ansible-oracle/group_vars/vbox-si-fs/databases.yml`.
 
 It is also possible to add more homes & databases than those already configured.
 
