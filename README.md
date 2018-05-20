@@ -31,9 +31,14 @@ If you want to use a different version or Oracle Linux, change the parameter `bo
 
 These boxes are prepared with all Oracle pre-req packages installed
 
-Download the Oracle binaries (see below) and place them in the `swrepo` directory.
+Download the Oracle binaries (see below) and place them in the `swrepo` directory. Alternatively, if you already have a directory where all Oracle binaries are located, change the `synced_folders: src` to point to your local directory (/Users/xxx/Downloads/oracle)
 
-And then: `vagrant up`
+And then: `setup=true vagrant up`. If you're on Windows you can do:
+
+```
+set setup=True
+vagrant up
+```
 
 This will (by default):
 - create a VM based on Oracle Linux 7.5
@@ -46,7 +51,7 @@ This will (by default):
 
 If you just want to create the machine, and not run the provisioning step run this:
 
-`vagrant up --no-provision`
+`vagrant up`
 
 ### Modifying the filesystems on the host
 
