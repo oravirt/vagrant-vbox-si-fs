@@ -158,10 +158,10 @@ servers.each_with_index do |vm,index|
             end # end if
 
             if provisioning and ENV['setup'] == 'true'
-              if vm['create_shared_disk'] # If shared disks, assume RAC install -> configure master_node at hostlevel
-                srv.vm.provision "hostvars", type: "shell", inline: "echo 'master_node: true' > /vagrant/extra-provision/ansible-oracle/host_vars/#{hostname}" if hostname == "#{vm['basename_vm']}1"       # sets up a 'master' node for RAC installs
-                srv.vm.provision "hostvars", type: "shell", inline: "echo 'master_node: false' > /vagrant/extra-provision/ansible-oracle/host_vars/#{hostname}" unless hostname == "#{vm['basename_vm']}1"
-              end
+              # if vm['create_shared_disk'] # If shared disks, assume RAC install -> configure master_node at hostlevel
+              #   srv.vm.provision "hostvars", type: "shell", inline: "echo 'master_node: true' > /vagrant/extra-provision/ansible-oracle/host_vars/#{hostname}" if hostname == "#{vm['basename_vm']}1"       # sets up a 'master' node for RAC installs
+              #   srv.vm.provision "hostvars", type: "shell", inline: "echo 'master_node: false' > /vagrant/extra-provision/ansible-oracle/host_vars/#{hostname}" unless hostname == "#{vm['basename_vm']}1"
+              # end
               if hostname == "#{vm['basename_vm']}1" # Run the provisioning step once, for all hosts in group. Only run on the 'first' node (lowest number), let Ansible do the parallelism
                 srv.vm.provision "ansible_local" do |ansible|
                   ansible.playbook = "#{provisioning}"
@@ -171,6 +171,14 @@ servers.each_with_index do |vm,index|
                   ansible.extra_vars = {
                     oracle_scan: "#{hostgroup}.#{domain}",
                     oracle_install_version_gi: "#{GIVER}",
+                    apply_patches_gi: "#{APPLY_PATCHES_GI}",
+                    apply_patches_db: "#{APPLY_PATCHES_DB}",
+                    db_homes_config: {"db1":{
+                    home: "db1",
+                    version: "#{DBVER}",
+                    edition: "EE",
+                    }},
+                    db_homes_installed: "#{DB_HOMES_INSTALLED.to_json}",
                     oracle_databases: "#{ORACLE_DATABASES.to_json}"
                   }
                 end
