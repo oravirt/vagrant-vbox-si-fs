@@ -36,7 +36,7 @@ Download the Oracle binaries (see below) and place them in the `swrepo` director
 And then: `setup=true vagrant up`. If you're on Windows you can do:
 
 ```
-set setup=True
+set setup=true
 vagrant up
 ```
 
