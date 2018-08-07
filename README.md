@@ -42,7 +42,7 @@ vagrant up
 
 This will (by default):
 - create a VM based on Oracle Linux 7.5
-- create a 12.2 container database called `orclcdb`
+- create a 18.3 container database called `orclcdb`
 - create a pdb called `orclpdb1`
 - sys/system passwords are `Oracle_123`
 - A tablespace called `appuser1_data` is created in the pdb

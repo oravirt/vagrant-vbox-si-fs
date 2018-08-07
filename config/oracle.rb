@@ -38,7 +38,7 @@ end
 if ENV['cdb']
  CDB = ENV['cdb']
 else
- CDB = "true"
+ CDB = true
 end
 if ENV['pdbname']
  PDBNAME = ENV['pdbname']
@@ -48,7 +48,7 @@ end
 if ENV['numpdbs']
  NUMPDBS = ENV['numpdbs']
 else
- NUMPDBS = "1"
+ NUMPDBS = "0"
 end
 if ENV['dbmem']
  DBMEM = ENV['dbmem']
@@ -73,50 +73,28 @@ end
 if ENV['archivelog']
  ARCHIVELOG = ENV['archivelog']
 else
- ARCHIVELOG = "false"
+ ARCHIVELOG = false
 end
 if ENV['force_logging']
  FORCE_LOGGING = ENV['force_logging']
 else
- FORCE_LOGGING = "false"
+ FORCE_LOGGING = false
 end
 if ENV['flashback']
  FLASHBACK = ENV['flashback']
 else
- FLASHBACK = "false"
-end
-if ENV['apply_patches_gi']
- APPLY_PATCHES_GI = ENV['apply_patches_gi']
-else
- APPLY_PATCHES_GI = "false"
+ FLASHBACK = false
 end
 if ENV['apply_patches_db']
  APPLY_PATCHES_DB = ENV['apply_patches_db']
 else
- APPLY_PATCHES_DB = "false"
+ APPLY_PATCHES_DB = false
 end
 
 if VALID_VERSIONS.include? DBVER
 else
  puts
  puts "valid versions are: #{VALID_VERSIONS}"
- puts "Your choice - dbver: #{DBVER} & giver: #{GIVER}"
- puts "exiting"
- exit 99
-end
-
-if VALID_VERSIONS.include? GIVER
-else
- puts
- puts "valid versions are: #{VALID_VERSIONS}"
- puts "Your choice - dbver: #{DBVER} & giver: #{GIVER}"
- puts "exiting"
- exit 99
-end
-
-if DBVER > GIVER
- puts
- puts "The Grid Infrastructure version (giver) must be higher or the same as the Database version (dbver)"
  puts "Your choice - dbver: #{DBVER} & giver: #{GIVER}"
  puts "exiting"
  exit 99
